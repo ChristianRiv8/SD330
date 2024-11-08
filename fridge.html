@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Display App</title>
+    <link rel="stylesheet" href="fridge.css">
+</head>
+<body>
+    <div id="app">
+        <button id="onOffButton">Turn On</button>
+
+        <!-- Button Section -->
+        <div id="buttonSection">
+            <button onclick="toggleFridgeView()">View Fridge</button>
+            <button onclick="playTVAudio()">TV</button>
+            <button onclick="showModule('browser')">Browser</button>
+            <button onclick="showModule('temperature')">Temperature</button>
+            <button onclick="showModule('time')">Time</button>
+            <button onclick="showTimer()">Show Timer</button>
+            <button id="showShoppingListButton">Show Shopping List</button>
+            <button id="showMusicPlayerButton">Show Music Player</button>
+            <!-- New Weather Button -->
+            <button onclick="showWeather()">Weather</button>
+        </div>
+
+        <!-- Display Section -->
+        <div id="displaySection" class="hidden">
+            <!-- Time Section -->
+            <div id="timeDisplay" class="hidden">
+                <p id="currentTime"></p>
+                <button id="timeToggleButton">Toggle Time Format</button>
+            </div>
+
+            <!-- Fridge Module -->
+            <div id="fridgeModule" class="module">
+                <img id="fridgeImage" src="" alt="Fridge">
+                <button onclick="toggleFridgeView()">Toggle Fridge View</button>
+            </div>
+
+            <!-- TV Module -->
+            <div id="tvModule" style="display: none;">
+                <img id="tvImage" style="display: none;" alt="TV Image" />
+            </div>
+
+            <!-- Browser Module -->
+            <div id="browserModule" class="module">
+                <img src="https://thetechpanda.com/wp-content/uploads/2012/12/Google-Chrome-Adds-Full-Blown-Search-Engines-to-the-New-Tab-Page.png" alt="Browser">
+            </div> 
+
+            <!-- Temperature Module -->
+            <div id="temperatureModule" class="module">
+                <button onclick="increaseTemperature()">Increase Temp</button>
+                <button onclick="decreaseTemperature()">Decrease Temp</button>
+                <span id="tempValue">20°C</span>
+                <button onclick="toggleTemperatureUnit()">Toggle °C/°F</button>
+            </div>
+
+            <!-- Weather Module -->
+            <div id="weatherModule" class="module">
+                <img src="https://praedictix-archive.s3.amazonaws.com/sitemedia/wp-content/2018/06/20212338/spencer_currents.png" alt="Current Weather" class="weather-image">
+            </div>
+
+            <div id="timerDisplay" class="hidden">
+                <p id="timerText">1:00</p>
+                <!-- Button to start the countdown -->
+                <button onclick="startCountdown()">Start Countdown</button>
+            </div>
+
+            <!-- Shopping list Module-->
+            <div id="shoppingListModule" class="hidden">
+                <h3>Shopping List</h3>
+                <ul id="shoppingList">
+                    <li>Milk</li>
+                    <li>Eggs</li>
+                    <li>Bread</li>
+                    <li>Butter</li>
+                    <li>Cheese</li>
+                </ul>
+                <input type="text" id="newItem" placeholder="Add a new item" />
+                <button id="addItemButton">Add Item</button>
+            </div>
+
+            <!-- Music Player Module-->
+            <div id="musicPlayerModule" class="hidden">
+                <audio id="audioPlayer" src="https://cdn.pixabay.com/download/audio/2024/09/09/audio_7556bb3a41.mp3?filename=lazy-day-stylish-futuristic-chill-239287.mp3" preload="auto"></audio>
+                <button id="playPauseButton">Play</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="fridge.js"></script>
+</body>
+</html>
