@@ -89,6 +89,7 @@ function hideAllModules() {
     timeDisplay.style.display = 'none';  
     weatherModule.style.display = 'none';  
     shoppingListModule.style.display = 'none';
+    showMusicPlayer.style.display = 'none';
     hideTimer();
 }
 
