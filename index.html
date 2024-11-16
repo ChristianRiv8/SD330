@@ -1,1 +1,96 @@
-Hello World from Christian Rivera 
+<!doctype html>
+<html>
+    <head> 
+        <img src="Face Headshot.jpg" alt="Your Avatar" class="avatar">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: url('Building-Brand-Consistency-in-a-Website-Design.jpg') no-repeat center center fixed;
+                background-size: cover;
+                color: #333;
+            }
+            header {
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                text-align: center;
+                border-bottom: 2px solid #ccc;
+            }
+            footer {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                padding: 10px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                border-top: 2px solid #ccc;
+            }
+            #files {
+                margin: 20px;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #007BFF;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            .avatar {
+                display: block;
+                margin: 0 auto 20px;
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                border: 3px solid #ccc;
+            }
+        </style>
+    </head>    
+    <header>
+        <title>My SD330 Files on GitHub</title>
+        <h1>My SD330 Files on GitHub</h1>
+        <p>Hello my name is Christian Rivera, I am a Computer Science Major with a Minor in Cyber Secuirty. I have experience with html, js, and css. I strive to create unique interfaces that please users and create a user friendly atmosphere.  </p>
+    </header>
+    <body onload="Filelist()">
+        <p id="files">
+
+        <script>
+            function Filelist() {
+                let htmlString = "";
+
+                // Fetch the list of files from the GitHub repository
+                (async () => {
+                    try {
+                        const response = await fetch("https://api.github.com/repos/christianriv8/SD330/contents/");
+                        
+                        if (!response.ok) {
+                            throw new Error(`Failed to fetch files: ${response.statusText}`);
+                        }
+
+                        const data = await response.json();
+
+                        // Loop through the list of files and create clickable links
+                        for (let file of data) {
+                            const fname = file.name;
+                            const fpath = file.download_url; // Use GitHub's direct download URL
+
+                            htmlString += `<p><a href="${fpath}" target="_blank">${fname}</a></p>`;
+                        }
+                    } catch (error) {
+                        htmlString = `<p>Error loading files: ${error.message}</p>`;
+                    }
+
+                    document.getElementById('files').innerHTML = htmlString;
+                })();
+            }
+        </script>
+          <footer>
+            <p>© 2024 Christian R. </p>
+        </footer>
+    </body>
+</html>
+
