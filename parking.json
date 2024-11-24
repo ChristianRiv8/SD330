@@ -1,0 +1,145 @@
+{
+    "parkingLots": [
+      {
+        "name": "Foy Parking Lot",
+        "mapFilename": "Foy.jpg",
+        "totalSpaces": 120,
+        "comments": "Close to the main campus building, often filled during weekdays.",
+        "location": "Central Campus",
+        "hoursOfOperation": "6 AM - 10 PM",
+        "securityLevel": "High",
+        "spaces": [
+          {
+            "spaceId": 1,
+            "type": "Student",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 2,
+            "type": "Faculty/Staff",
+            "status": "Filled",
+            "filledDateTime": "2024-11-23T08:15:00",
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 3,
+            "type": "Handicap",
+            "status": "Reserved",
+            "filledDateTime": null,
+            "reservedDateTime": "2024-11-23T09:00:00"
+          },
+          {
+            "spaceId": 4,
+            "type": "Student",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 5,
+            "type": "Faculty/Staff",
+            "status": "Filled",
+            "filledDateTime": "2024-11-23T07:45:00",
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 6,
+            "type": "Student",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 7,
+            "type": "Handicap",
+            "status": "Filled",
+            "filledDateTime": "2024-11-23T08:30:00",
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 8,
+            "type": "Reserved",
+            "status": "Reserved",
+            "filledDateTime": null,
+            "reservedDateTime": "2024-11-23T10:00:00"
+          },
+          {
+            "spaceId": 9,
+            "type": "Student",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 10,
+            "type": "Faculty/Staff",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 11,
+            "type": "Handicap",
+            "status": "Available",
+            "filledDateTime": null,
+            "reservedDateTime": null
+          },
+          {
+            "spaceId": 12,
+            "type": "Student",
+            "status": "Filled",
+            "filledDateTime": "2024-11-23T09:30:00",
+            "reservedDateTime": null
+          }
+        ]
+      },
+      {
+        "name": " McCann/Sheahan Parking Lot",
+        "mapFilename": "McCann.jpg",
+        "totalSpaces": 300,
+        "comments": "Great access to what McCAnn has to offer and a central part of campus.",
+        "location": "East Campus",
+        "hoursOfOperation": "24/7",
+        "securityLevel": "Medium"
+      },
+      {
+        "name": "Midrise Parking Lot",
+        "mapFilename": "Midrise.jpg",
+        "totalSpaces": 150,
+        "comments": "Access to central campus as well as closest parking lot to our Library.",
+        "location": "North Campus",
+        "hoursOfOperation": "6 AM - 11 PM",
+        "securityLevel": "Low"
+      },
+      {
+        "name": "Donelly Parking Lot",
+        "mapFilename": "Donelly.jpg",
+        "totalSpaces": 200,
+        "comments": "Direct access to our main building on campus for visitors. Building where our security is based on campus.",
+        "location": "East Campus",
+        "hoursOfOperation": "24/7",
+        "securityLevel": "High"
+      },
+      {
+        "name": "Beck West Parking Lot",
+        "mapFilename": "BeckWest.jpg",
+        "totalSpaces": 100,
+        "comments": "Main commuter and visitor parking lot.",
+        "location": "Central Campus",
+        "hoursOfOperation": "8 AM - 8 PM",
+        "securityLevel": "High"
+      },
+      {
+        "name": "51/57 Fulton Parking Lot",
+        "mapFilename": "Fulton.jpg",
+        "totalSpaces": 80,
+        "comments": "Our main parking lot for 51/57 Fulton buildings.",
+        "location": "Athletics Center",
+        "hoursOfOperation": "6 AM - Midnight",
+        "securityLevel": "Medium"
+      }
+    ]
+  }
+  
