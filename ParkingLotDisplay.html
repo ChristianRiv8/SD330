@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #b30000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .lot {
+            border: 1px solid #b30000;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .lot h2 {
+            color: #b30000;
+            margin-bottom: 10px;
+        }
+
+        .lot p {
+            margin: 5px 0;
+        }
+
+        .breadcrumbs {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: #b30000;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #b30000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        a {
+            color: #b30000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Parking Lots</h1>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="parking.html">Home</a> &gt; <span>Parking Lots</span>
+    </div>
+
+    <div class="container" id="parking-lots">
+    </div>
+
+    <footer>
+        &copy; 2024 Marist Parking App
+    </footer>
+
+    <script>
+        // JSON Data
+        const parkingData = {
+            "parkingLots": [
+                {
+                    "name": "Foy Parking Lot",
+                    "mapFilename": "Foy.jpg",
+                    "totalSpaces": 120,
+                    "comments": "Close to the main campus building, often filled during weekdays.",
+                    "location": "Central Campus",
+                    "hoursOfOperation": "6 AM - 10 PM",
+                    "securityLevel": "High"
+                },
+                {
+                    "name": "McCann/Sheahan Parking Lot",
+                    "mapFilename": "McCann.jpg",
+                    "totalSpaces": 300,
+                    "comments": "Great access to what McCann has to offer and a central part of campus.",
+                    "location": "East Campus",
+                    "hoursOfOperation": "24/7",
+                    "securityLevel": "Medium"
+                },
+                {
+                    "name": "Midrise Parking Lot",
+                    "mapFilename": "Midrise.jpg",
+                    "totalSpaces": 150,
+                    "comments": "Access to central campus as well as closest parking lot to our Library.",
+                    "location": "North Campus",
+                    "hoursOfOperation": "6 AM - 11 PM",
+                    "securityLevel": "Low"
+                },
+                {
+                    "name": "Donelly Parking Lot",
+                    "mapFilename": "Donelly.jpg",
+                    "totalSpaces": 200,
+                    "comments": "Direct access to our main building on campus for visitors. Building where our security is based on campus.",
+                    "location": "East Campus",
+                    "hoursOfOperation": "24/7",
+                    "securityLevel": "High"
+                },
+                {
+                    "name": "Beck West Parking Lot",
+                    "mapFilename": "BeckWest.jpg",
+                    "totalSpaces": 100,
+                    "comments": "Main commuter and visitor parking lot.",
+                    "location": "Central Campus",
+                    "hoursOfOperation": "8 AM - 8 PM",
+                    "securityLevel": "High"
+                },
+                {
+                    "name": "51/57 Fulton Parking Lot",
+                    "mapFilename": "Fulton.jpg",
+                    "totalSpaces": 80,
+                    "comments": "Our main parking lot for 51/57 Fulton buildings.",
+                    "location": "Athletics Center",
+                    "hoursOfOperation": "6 AM - Midnight",
+                    "securityLevel": "Medium"
+                }
+            ]
+        };
+
+        // Generate parking lot details
+        const parkingLotsContainer = document.getElementById('parking-lots');
+
+        parkingData.parkingLots.forEach(lot => {
+            const lotDiv = document.createElement('div');
+            lotDiv.classList.add('lot');
+
+            // Check if the lot name is Foy Parking Lot if so link to the spaces page
+            const lotLink = (lot.name === "Foy Parking Lot") ? 
+                `<a href="spaces.html?lot=${encodeURIComponent(lot.name)}">${lot.name}</a>` : 
+                `<a href="404page.html">${lot.name}</a>`; 
+
+            lotDiv.innerHTML = `
+                <h2>${lotLink}</h2>
+                <p><strong>Location:</strong> ${lot.location}</p>
+                <p><strong>Total Spaces:</strong> ${lot.totalSpaces}</p>
+                <p><strong>Hours of Operation:</strong> ${lot.hoursOfOperation}</p>
+                <p><strong>Security Level:</strong> ${lot.securityLevel}</p>
+                <p><strong>Comments:</strong> ${lot.comments}</p>
+            `;
+
+            parkingLotsContainer.appendChild(lotDiv);
+        });
+    </script>
+</body>
+</html>
