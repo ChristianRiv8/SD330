@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marist Parking App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        header {
+            background-color: #b30000;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #660000;
+        }
+
+        nav {
+            background-color: #e60000;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffffff;
+            color: #b30000;
+        }
+
+        main {
+            padding: 30px;
+            text-align: center;
+        }
+
+        main h2 {
+            font-size: 1.8em;
+            color: #b30000;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-buttons a {
+            text-decoration: none;
+            background-color: #b30000;
+            color: #ffffff;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #e60000;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #b30000;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="https://logos-download.com/wp-content/uploads/2021/01/Marist_College_Logo.png" 
+             alt="Marist College Logo" 
+             style="height: 50px; vertical-align: middle; margin-right: 10px;">
+            Marist Parking App</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="ParkingLotDisplay.html">View All Lots</a></li>
+            <li><a href="404page.html">Reserve Parking</a></li>
+            <li><a href="404page.html">Contact Us</a></li>
+            <li><a href="404page.html">About Us</a></li>
+            <li><a href="404page.html">Security</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Welcome to the Marist Parking App</h2>
+        <p>
+            Easily manage parking lots, find available spaces, and view detailed information about our facilities. 
+            Navigate through the system to discover all we have to offer.
+        </p>
+        <div class="cta-buttons">
+            <a href="ParkingLotDisplay.html">View Parking Lots</a>
+            <a href="404page.html">Get Help</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Marist Parking App. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
