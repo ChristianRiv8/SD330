@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foy Parking Lot Spaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #b30000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .breadcrumb {
+            background-color: #f9f9f9;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #b30000;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .lot-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .lot-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .space {
+            border: 1px solid #b30000;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .space h2 {
+            color: #b30000;
+            margin-bottom: 10px;
+        }
+
+        .space p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #b30000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Foy Parking Lot Spaces</h1>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="parking.html">Home</a> > 
+            <a href="ParkingLotDisplay.html">Parking Lots</a> > <span>Spaces</span>
+        </div>
+
+        <div class="lot-image" id="lot-image">
+        </div>
+
+        <div id="parking-spaces">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Marist Parking App
+    </footer>
+
+    <script>
+        // JSON Data
+        const parkingData = {
+            "parkingLots": [
+                {
+                    "name": "Foy Parking Lot",
+                    "mapFilename": "Foy.jpg",
+                    "totalSpaces": 120,
+                    "comments": "Close to the main campus building, often filled during weekdays.",
+                    "location": "Central Campus",
+                    "hoursOfOperation": "6 AM - 10 PM",
+                    "securityLevel": "High",
+                    "spaces": [
+                        {
+                            "spaceId": 1,
+                            "type": "Student",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 2,
+                            "type": "Faculty/Staff",
+                            "status": "Filled",
+                            "filledDateTime": "2024-11-23T08:15:00",
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 3,
+                            "type": "Handicap",
+                            "status": "Reserved",
+                            "filledDateTime": null,
+                            "reservedDateTime": "2024-11-23T09:00:00"
+                        },
+                        {
+                            "spaceId": 4,
+                            "type": "Student",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 5,
+                            "type": "Faculty/Staff",
+                            "status": "Filled",
+                            "filledDateTime": "2024-11-23T07:45:00",
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 6,
+                            "type": "Student",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 7,
+                            "type": "Handicap",
+                            "status": "Filled",
+                            "filledDateTime": "2024-11-23T08:30:00",
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 8,
+                            "type": "Reserved",
+                            "status": "Reserved",
+                            "filledDateTime": null,
+                            "reservedDateTime": "2024-11-23T10:00:00"
+                        },
+                        {
+                            "spaceId": 9,
+                            "type": "Student",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 10,
+                            "type": "Faculty/Staff",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 11,
+                            "type": "Handicap",
+                            "status": "Available",
+                            "filledDateTime": null,
+                            "reservedDateTime": null
+                        },
+                        {
+                            "spaceId": 12,
+                            "type": "Student",
+                            "status": "Filled",
+                            "filledDateTime": "2024-11-23T09:30:00",
+                            "reservedDateTime": null
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const parkingSpacesContainer = document.getElementById("parking-spaces");
+        const lotImageContainer = document.getElementById("lot-image");
+
+        // Foy Parking Lot
+        const foyParkingLot = parkingData.parkingLots.find(lot => lot.name === "Foy Parking Lot");
+
+        if (foyParkingLot) {
+            // Add the lot image
+            const lotImage = document.createElement("img");
+            lotImage.src = foyParkingLot.mapFilename;
+            lotImage.alt = `${foyParkingLot.name} Map`;
+            lotImageContainer.appendChild(lotImage);
+
+            // Add the parking spaces
+            if (foyParkingLot.spaces) {
+                foyParkingLot.spaces.forEach(space => {
+                    const spaceDiv = document.createElement("div");
+                    spaceDiv.classList.add("space");
+
+                    spaceDiv.innerHTML = `
+                        <h2>Space ID: ${space.spaceId}</h2>
+                        <p><strong>Type:</strong> ${space.type}</p>
+                        <p><strong>Status:</strong> ${space.status}</p>
+                        <p><strong>Filled DateTime:</strong> ${space.filledDateTime ? space.filledDateTime : "N/A"}</p>
+                        <p><strong>Reserved DateTime:</strong> ${space.reservedDateTime ? space.reservedDateTime : "N/A"}</p>
+                    `;
+
+                    parkingSpacesContainer.appendChild(spaceDiv);
+                });
+            } else {
+                parkingSpacesContainer.innerHTML = `
+                    <p style="text-align: center; color: #b30000;">No parking spaces found for Foy Parking Lot.</p>
+                `;
+            }
+        } else {
+            parkingSpacesContainer.innerHTML = `
+                <p style="text-align: center; color: #b30000;">Foy Parking Lot data is missing.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
